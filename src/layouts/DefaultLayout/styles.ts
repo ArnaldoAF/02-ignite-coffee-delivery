@@ -2,13 +2,10 @@ import styled from 'styled-components'
 
 export const LayoutContainer = styled.div`
   max-width: 74rem;
-  height: calc(100vh - 5rem);
-  margin: 2.5rem auto;
-  padding: 2rem;
+  height: 100vh;
+  margin: 0 auto;
 
-  background: ${(props) => props.theme['gray-800']};
-  border-radius: 8px;
+  background: ${(props) => props.theme.background};
 
-  display: flex;
   flex-direction: column;
 `
