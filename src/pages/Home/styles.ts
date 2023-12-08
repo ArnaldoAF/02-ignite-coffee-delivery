@@ -1,9 +1,12 @@
 import styled from 'styled-components'
+import BackgroundImage from '../../assets/Background.svg'
 
 export const HomeContainer = styled.div`
   display: flex;
-  gap: 3.5rem;
-  padding-top: 4rem;
+  gap: 5.5rem;
+  padding: 6rem 5rem;
+  background-image: url(${BackgroundImage});
+  margin: 0 -5rem;
 
   .title-XL {
     margin-bottom: 2rem;
