@@ -1,3 +1,4 @@
+import { CoffeeTag } from '../../../../components/CoffeeTag'
 import { CoffeeListContainer } from './styles'
 
 export function CoffeeList() {
@@ -6,9 +7,9 @@ export function CoffeeList() {
       <header>
         <p className="title-L"> Nossos Cafés</p>
         <div>
-          <button>Tradicional</button>
-          <button>Especial</button>
-          <button>Com Leite</button>
+          <CoffeeTag text="Tradicional" />
+          <CoffeeTag text="Especial" />
+          <CoffeeTag text="Com Leite" />
         </div>
       </header>
 
