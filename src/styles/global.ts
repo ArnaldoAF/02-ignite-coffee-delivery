@@ -16,11 +16,6 @@ export const GlobalStyle = createGlobalStyle`
     box-shadow: 0 0 0;
  }
 
- button:focus {
-   outline: 0;
-   box-shadow: 0 0 0;
- }
-
  border-style, input-security, textarea, button {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;;
@@ -33,6 +28,11 @@ export const GlobalStyle = createGlobalStyle`
    &:hover {
       filter: brightness(95%);
       transition: 0.15s;
+   }
+
+   :focus {
+      outline: 0;
+      box-shadow: 0 0 0;
    }
  }
 `
