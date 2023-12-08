@@ -10,6 +10,7 @@ export function CartIcon() {
         weight="fill"
         color={defaultTheme['yellow-dark']}
       />
+      <span>3</span>
     </CartIconContainer>
   )
 }
