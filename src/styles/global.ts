@@ -26,4 +26,13 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;;
     font-size: 1rem;
  }
+
+ button {
+   border: 0;
+
+   &:hover {
+      filter: brightness(95%);
+      transition: 0.15s;
+   }
+ }
 `

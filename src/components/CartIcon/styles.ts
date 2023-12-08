@@ -19,11 +19,6 @@ export const CartIconContainer = styled.button`
 
   padding: 0.5rem;
 
-  &:hover {
-    filter: brightness(95%);
-    transition: 0.15s;
-  }
-
   span {
     background: ${(props) => props.theme['yellow-dark']};
     color: ${(props) => props.theme.white};
