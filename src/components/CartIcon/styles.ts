@@ -10,9 +10,16 @@ export const CartIconContainer = styled.button`
   align-items: center;
   justify-content: center;
 
+  cursor: pointer;
+
   svg {
     fill: 'red';
   }
 
   padding: 0.5rem;
+
+  &:hover {
+    filter: brightness(95%);
+    transition: 0.15s;
+  }
 `
