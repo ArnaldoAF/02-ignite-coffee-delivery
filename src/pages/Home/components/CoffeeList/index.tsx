@@ -1,3 +1,4 @@
+import { CoffeeCard } from '../../../../components/CoffeeCard'
 import { CoffeeTag } from '../../../../components/CoffeeTag'
 import { CoffeeListData } from '../../../../data/data'
 import { CoffeeListContainer } from './styles'
@@ -16,7 +17,9 @@ export function CoffeeList() {
 
       <section>
         {CoffeeListData.map((coffee) => (
-          <p key={coffee.name}>{coffee.name}</p>
+          <div key={coffee.name}>
+            <CoffeeCard coffee={coffee} />
+          </div>
         ))}
       </section>
     </CoffeeListContainer>

@@ -18,7 +18,7 @@ export const CoffeeListContainer = styled.div`
     width: 100%;
 
     > * {
-      width: 33%;
+      width: calc(100% / 4);
     }
   }
 `
