@@ -5,10 +5,20 @@ export const CoffeeListContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 3.5rem;
 
     div {
       display: flex;
       gap: 0.5rem;
+    }
+  }
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    > * {
+      width: 33%;
     }
   }
 `

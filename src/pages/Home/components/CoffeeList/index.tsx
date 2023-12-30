@@ -1,4 +1,5 @@
 import { CoffeeTag } from '../../../../components/CoffeeTag'
+import { CoffeeListData } from '../../../../data/data'
 import { CoffeeListContainer } from './styles'
 
 export function CoffeeList() {
@@ -13,7 +14,11 @@ export function CoffeeList() {
         </div>
       </header>
 
-      <section>Lista de cafés</section>
+      <section>
+        {CoffeeListData.map((coffee) => (
+          <p key={coffee.name}>{coffee.name}</p>
+        ))}
+      </section>
     </CoffeeListContainer>
   )
 }
