@@ -3,6 +3,7 @@ import { ShoppingCart } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
 import { Text } from '../../styles/Typhography/Text'
 import { Title } from '../../styles/Typhography/Title'
+import { NumberInput } from '../NumberInput'
 
 interface CoffeeInterface {
   name: string
@@ -43,7 +44,7 @@ export function CoffeeCard(props: CoffeeCardProps) {
           <Text size="s">R$</Text>
           <Title size="m">{formattedPrice}</Title>
         </span>
-        <input type="number" name="" id="" />
+        <NumberInput />
         <button>
           <ShoppingCart size={22} weight="fill" color={defaultTheme.white} />
         </button>

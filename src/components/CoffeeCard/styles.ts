@@ -42,7 +42,7 @@ export const CoffeeCardContainer = styled.div`
   }
 
   .descriptionCoffee {
-    margin-bottom: 1rem;
+    margin-bottom: 2.1rem;
     color: ${(props) => props.theme['base-label']};
   }
 
