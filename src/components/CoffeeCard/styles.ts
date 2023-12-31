@@ -6,6 +6,7 @@ export const CoffeeCardContainer = styled.div`
   border-radius: 0 36px 0 36px;
   padding: 1.25rem;
   max-width: 16rem;
+  height: 21rem;
 
   display: flex;
   flex-direction: column;
@@ -49,6 +50,8 @@ export const CoffeeCardContainer = styled.div`
 
   footer {
     display: flex;
+    flex: 1;
+    align-items: end;
 
     span {
       display: flex;

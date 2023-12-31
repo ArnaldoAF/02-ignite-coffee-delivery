@@ -4,13 +4,14 @@ import { defaultTheme } from '../../styles/themes/default'
 import { Text } from '../../styles/Typhography/Text'
 import { Title } from '../../styles/Typhography/Title'
 import { NumberInput } from '../NumberInput'
+import { CoffeeTypes } from '../../data/data'
 
 interface CoffeeInterface {
   name: string
   description: string
   price: number
   photo: string
-  tags: number[]
+  tags: CoffeeTypes[]
 }
 
 interface CoffeeCardProps {
@@ -25,6 +26,7 @@ export function CoffeeCard(props: CoffeeCardProps) {
       currency: 'BRL',
     })
     .substring(3)
+
   return (
     <CoffeeCardContainer>
       <img src={photo} alt="" />

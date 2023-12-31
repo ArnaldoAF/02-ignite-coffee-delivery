@@ -8,7 +8,7 @@ export const HeaderContainer = styled.div`
 
   background: ${(props) => props.theme.background};
 
-  padding: 2rem 0;
+  padding: 2rem 1rem;
 
   position: sticky;
 

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const CoffeeListContainer = styled.div`
+  margin-bottom: 3.5rem;
   header {
     display: flex;
     justify-content: space-between;
@@ -16,9 +17,9 @@ export const CoffeeListContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    gap: 2.5rem 2.5rem;
 
     > * {
-      width: calc(100% / 4);
     }
   }
 `
