@@ -27,9 +27,18 @@ export const CoffeeCardContainer = styled.div`
 
   .descriptionCoffee {
     margin-bottom: 1rem;
+    color: ${(props) => props.theme['base-label']};
   }
 
   footer {
     display: flex;
+
+    span {
+      display: flex;
+      flex: 1;
+      align-content: flex-end;
+      align-items: center;
+      gap: 0.4rem;
+    }
   }
 `

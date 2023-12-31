@@ -1,6 +1,8 @@
 import { CoffeeCardContainer } from './styles'
 import { ShoppingCart } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
+import { Text } from '../../styles/Typhography/Text'
+import { Title } from '../../styles/Typhography/Title'
 
 interface CoffeeInterface {
   name: string
@@ -16,6 +18,12 @@ interface CoffeeCardProps {
 
 export function CoffeeCard(props: CoffeeCardProps) {
   const { name, description, price, photo, tags } = props.coffee
+  const formattedPrice = price
+    .toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    })
+    .substring(3)
   return (
     <CoffeeCardContainer>
       <img src={photo} alt="" />
@@ -24,10 +32,17 @@ export function CoffeeCard(props: CoffeeCardProps) {
           <p key={tag}>{tag}</p>
         ))}
       </div>
-      <span className="nameCoffee">{name}</span>
-      <span className="descriptionCoffee">{description}</span>
+      <Title size="s" className="nameCoffee">
+        {name}
+      </Title>
+      <Text size="s" className="descriptionCoffee">
+        {description}
+      </Text>
       <footer>
-        <p>{price}</p>
+        <span>
+          <Text size="s">R$</Text>
+          <Title size="m">{formattedPrice}</Title>
+        </span>
         <input type="number" name="" id="" />
         <button>
           <ShoppingCart size={22} weight="fill" color={defaultTheme.white} />
