@@ -29,7 +29,7 @@ export function CoffeeCard(props: CoffeeCardProps) {
       <img src={photo} alt="" />
       <div className="tagList">
         {tags.map((tag) => (
-          <p key={tag}>{tag}</p>
+          <span key={tag}>{tag}</span>
         ))}
       </div>
       <Title size="s" className="nameCoffee">

@@ -19,6 +19,22 @@ export const CoffeeCardContainer = styled.div`
 
   .tagList {
     margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+
+    span {
+      padding: 0.25rem 0.75rem;
+      border-radius: 500px;
+      background: ${(props) => props.theme['yellow-light']};
+      color: ${(props) => props.theme['yellow-dark']};
+
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.65rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
   }
 
   .nameCoffee {
