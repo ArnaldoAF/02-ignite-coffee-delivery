@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const NumberInputContainer = styled.div`
-  height: 2rem;
+  height: 2.3rem;
   width: 4.5rem;
   border-radius: 6px;
   overflow: hidden;

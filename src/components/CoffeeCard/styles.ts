@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { CartIconBase } from '../CartIcon/styles'
 
 export const CoffeeCardContainer = styled.div`
   background-color: ${(props) => props.theme['base-card']};
@@ -57,4 +58,11 @@ export const CoffeeCardContainer = styled.div`
       gap: 0.4rem;
     }
   }
+`
+
+export const CartButton = styled(CartIconBase)`
+  background: ${(props) => props.theme['purple-dark']};
+  width: 2.3rem;
+  height: 2.3rem;
+  margin-left: 0.5rem;
 `
