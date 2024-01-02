@@ -68,4 +68,5 @@ export const CartButton = styled(CartIconBase)`
   width: 2.3rem;
   height: 2.3rem;
   margin-left: 0.5rem;
+  position: initial;
 `
