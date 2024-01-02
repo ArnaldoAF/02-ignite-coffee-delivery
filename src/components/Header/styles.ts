@@ -1,17 +1,20 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 74rem;
+    margin: 0 auto;
+  }
 
   background: ${(props) => props.theme.background};
 
-  padding: 2rem 0;
+  padding: 2rem 1rem;
 
   position: sticky;
-
   top: 0;
 
   .actionsDiv {

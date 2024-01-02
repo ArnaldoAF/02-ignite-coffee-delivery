@@ -9,19 +9,25 @@ import { defaultTheme } from '../../styles/themes/default'
 export function Header() {
   return (
     <HeaderContainer>
-      <div>
-        <NavLink to="/" title="Timer">
-          <img src={LogoImg} alt="" />
-        </NavLink>
-      </div>
+      <main>
+        <div>
+          <NavLink to="/" title="Timer">
+            <img src={LogoImg} alt="" />
+          </NavLink>
+        </div>
 
-      <div className="actionsDiv">
-        <button className="locationButton">
-          <MapPin size={22} weight="fill" color={defaultTheme['purple-dark']} />
-          Porto Alegre
-        </button>
-        <CartIcon />
-      </div>
+        <div className="actionsDiv">
+          <button className="locationButton">
+            <MapPin
+              size={22}
+              weight="fill"
+              color={defaultTheme['purple-dark']}
+            />
+            Porto Alegre
+          </button>
+          <CartIcon />
+        </div>
+      </main>
     </HeaderContainer>
   )
 }

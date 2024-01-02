@@ -1,23 +1,25 @@
 import styled from 'styled-components'
 
-export const CartIconContainer = styled.button`
-  background: ${(props) => props.theme['yellow-light']};
+export const CartIconBase = styled.button`
   border: 0;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 8px;
   position: relative;
+  padding: 0.5rem;
 
   align-items: center;
   justify-content: center;
 
   cursor: pointer;
+`
+
+export const CartIconContainer = styled(CartIconBase)`
+  background: ${(props) => props.theme['yellow-light']};
 
   svg {
     fill: 'red';
   }
-
-  padding: 0.5rem;
 
   span {
     background: ${(props) => props.theme['yellow-dark']};
