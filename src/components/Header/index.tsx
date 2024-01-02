@@ -25,7 +25,9 @@ export function Header() {
             />
             Porto Alegre
           </button>
-          <CartIcon />
+          <NavLink to="/checkout" title="Timer">
+            <CartIcon />
+          </NavLink>
         </div>
       </main>
     </HeaderContainer>
