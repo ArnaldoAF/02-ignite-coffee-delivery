@@ -1,9 +1,22 @@
-import { CheckoutContainer, BaseInput, PaymentOptionButton } from './styles'
+import {
+  CheckoutContainer,
+  BaseInput,
+  PaymentOptionButton,
+  SubmitButton,
+} from './styles'
 import { Title } from '../../styles/Typhography/Title'
 import { Text } from '../../styles/Typhography/Text'
-import { MapPinLine, CurrencyDollar, CreditCard } from 'phosphor-react'
+import {
+  MapPinLine,
+  CurrencyDollar,
+  CreditCard,
+  Bank,
+  Money,
+} from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
 import { useState } from 'react'
+
+// React.ForwardRefExoticComponent<IconProps & React.RefAttributes<SVGSVGElement>>
 
 export function Checkout() {
   const [currentPaymentMethod, setCurrentPaymentMethod] = useState('credito')
@@ -11,16 +24,21 @@ export function Checkout() {
     {
       text: 'CARTÃO DE CRÉDITO',
       value: 'credito',
+      Icon: CreditCard,
     },
     {
       text: 'CARTÃO DE DEBITO',
       value: 'debito',
+      Icon: Bank,
     },
     {
       text: 'DINHEIRO',
       value: 'dinheiro',
+      Icon: Money,
     },
   ]
+  const Icons = MapPinLine
+  console.log(Icons)
 
   function changeCurretentPaymentMethod(payment: string) {
     setCurrentPaymentMethod(payment)
@@ -72,7 +90,16 @@ export function Checkout() {
                     `}
                   onClick={() => changeCurretentPaymentMethod(option.value)}
                 >
-                  <CreditCard size={16} color={defaultTheme.purple} />
+                  {option.value === 'credito' && (
+                    <CreditCard size={16} color={defaultTheme.purple} />
+                  )}
+                  {option.value === 'debito' && (
+                    <Bank size={16} color={defaultTheme.purple} />
+                  )}
+                  {option.value === 'dinheiro' && (
+                    <Money size={16} color={defaultTheme.purple} />
+                  )}
+
                   {option.text}
                 </PaymentOptionButton>
               ))}
@@ -82,7 +109,28 @@ export function Checkout() {
       </main>
       <aside>
         <Title size="xs">Cafés selecionados</Title>
-        <div>Teste</div>
+        <div>
+          <hr />
+          <footer>
+            <div>
+              <Text size="s">Total de itens</Text>
+              <Text size="m">R$ 29,70</Text>
+            </div>
+            <div>
+              <Text size="s">Entrega</Text>
+              <Text size="m">R$ 29,70</Text>
+            </div>
+            <div>
+              <Text size="l" className="bold">
+                Total
+              </Text>
+              <Text size="l" className="bold">
+                R$ 29,70
+              </Text>
+            </div>
+            <SubmitButton>CONFIRMAR PEDIDO</SubmitButton>
+          </footer>
+        </div>
       </aside>
     </CheckoutContainer>
   )
