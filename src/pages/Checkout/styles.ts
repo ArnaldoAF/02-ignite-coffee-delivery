@@ -6,6 +6,8 @@ export const CheckoutContainer = styled.div`
   display: flex;
   gap: 2rem;
 
+  margin-bottom: 5rem;
+
   main {
     width: 60%;
 
@@ -57,6 +59,14 @@ export const CheckoutContainer = styled.div`
         }
       }
     }
+
+    aside {
+      > div {
+        display: flex;
+        padding: 2.5rem;
+        background: ${(props) => props.theme['base-card']};
+      }
+    }
   }
 `
 
@@ -77,5 +87,32 @@ export const BaseInput = styled.input`
 
   &::placeholder {
     color: ${(props) => props.theme['base-label']};
+  }
+`
+
+export const PaymentOptionButton = styled.div`
+  background: ${(props) => props.theme['base-button']};
+  border: 1px solid ${(props) => props.theme['base-button']};
+
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: ${(props) => props.theme['base-text']};
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &:hover {
+    filter: brightness(95%);
+    transition: 0.15s;
+  }
+
+  &.active {
+    background: ${(props) => props.theme['purple-light']};
+    border: 1px solid ${(props) => props.theme.purple};
   }
 `

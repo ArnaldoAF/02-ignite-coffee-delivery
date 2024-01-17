@@ -1,10 +1,30 @@
-import { CheckoutContainer, BaseInput } from './styles'
+import { CheckoutContainer, BaseInput, PaymentOptionButton } from './styles'
 import { Title } from '../../styles/Typhography/Title'
 import { Text } from '../../styles/Typhography/Text'
-import { MapPinLine, CurrencyDollar } from 'phosphor-react'
+import { MapPinLine, CurrencyDollar, CreditCard } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
+import { useState } from 'react'
 
 export function Checkout() {
+  const [currentPaymentMethod, setCurrentPaymentMethod] = useState('credito')
+  const PaymentOptions = [
+    {
+      text: 'CARTÃO DE CRÉDITO',
+      value: 'credito',
+    },
+    {
+      text: 'CARTÃO DE DEBITO',
+      value: 'debito',
+    },
+    {
+      text: 'DINHEIRO',
+      value: 'dinheiro',
+    },
+  ]
+
+  function changeCurretentPaymentMethod(payment: string) {
+    setCurrentPaymentMethod(payment)
+  }
   return (
     <CheckoutContainer>
       <main>
@@ -42,12 +62,27 @@ export function Checkout() {
                 </Text>
               </div>
             </header>
+
+            <div>
+              {PaymentOptions.map((option) => (
+                <PaymentOptionButton
+                  key={option.value}
+                  className={`
+                    ${currentPaymentMethod === option.value && 'active'}
+                    `}
+                  onClick={() => changeCurretentPaymentMethod(option.value)}
+                >
+                  <CreditCard size={16} color={defaultTheme.purple} />
+                  {option.text}
+                </PaymentOptionButton>
+              ))}
+            </div>
           </section>
         </article>
       </main>
       <aside>
         <Title size="xs">Cafés selecionados</Title>
-        <div></div>
+        <div>Teste</div>
       </aside>
     </CheckoutContainer>
   )
