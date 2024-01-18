@@ -10,7 +10,9 @@ export function SuccessPage() {
   return (
     <SuccessPageContainer>
       <div>
-        <Title size="l">Uhu! Pedido confirmado</Title>
+        <Title size="l" className="title">
+          Uhu! Pedido confirmado
+        </Title>
         <Text size="l">
           Agora é só aguardar que logo o café chegará até você
         </Text>
@@ -25,12 +27,14 @@ export function SuccessPage() {
           <IconWIthText
             text1="Previsão de entrega"
             text2="20 min - 20 min"
+            text2IsBold
             Icon={Timer}
             iconColor={defaultTheme.yellow}
           />
           <IconWIthText
             text1="Pagamento na entrega"
             text2="Cartão de Crédito"
+            text2IsBold
             Icon={CurrencyDollar}
             iconColor={defaultTheme['yellow-dark']}
           />

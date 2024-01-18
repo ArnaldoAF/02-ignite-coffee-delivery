@@ -1,10 +1,14 @@
 import styled from 'styled-components'
 
 export const SuccessPageContainer = styled.div`
-  margin-top: 5rem;
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
   gap: 6rem;
+
+  .title {
+    color: ${(props) => props.theme['yellow-dark']};
+  }
 
   section {
     margin-top: 2.5rem;

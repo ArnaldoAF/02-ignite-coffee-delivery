@@ -6,10 +6,12 @@ interface IconWIthTextProps {
   iconColor: string
   text1: string
   text2?: string
+  text1IsBold?: boolean
+  text2IsBold?: boolean
 }
 
 export function IconWIthText(props: IconWIthTextProps) {
-  const { Icon, iconColor, text1, text2 } = props
+  const { Icon, iconColor, text1, text2, text1IsBold, text2IsBold } = props
   return (
     <IconWIthTextContainer>
       <div
@@ -21,8 +23,8 @@ export function IconWIthText(props: IconWIthTextProps) {
       </div>
 
       <div>
-        <span className="text-M">{text1}</span>
-        <span className="text-M">{text2}</span>
+        <span className={`text-M ${text1IsBold && 'bold'}`}>{text1}</span>
+        <span className={`text-M ${text2IsBold && 'bold'}`}>{text2}</span>
       </div>
     </IconWIthTextContainer>
   )

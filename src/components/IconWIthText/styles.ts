@@ -15,6 +15,10 @@ export const IconWIthTextContainer = styled.div`
     justify-content: center;
   }
 
+  .bold {
+    font-weight: bold;
+  }
+
   div {
     display: flex;
     flex-direction: column;
