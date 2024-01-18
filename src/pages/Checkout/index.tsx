@@ -1,9 +1,4 @@
-import {
-  CheckoutContainer,
-  BaseInput,
-  PaymentOptionButton,
-  SubmitButton,
-} from './styles'
+import { CheckoutContainer, BaseInput, PaymentOptionButton } from './styles'
 import { Title } from '../../styles/Typhography/Title'
 import { Text } from '../../styles/Typhography/Text'
 import {
@@ -15,6 +10,7 @@ import {
 } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
 import { useState } from 'react'
+import { Cart } from './components/Cart'
 
 // React.ForwardRefExoticComponent<IconProps & React.RefAttributes<SVGSVGElement>>
 
@@ -107,31 +103,7 @@ export function Checkout() {
           </section>
         </article>
       </main>
-      <aside>
-        <Title size="xs">Cafés selecionados</Title>
-        <div>
-          <hr />
-          <footer>
-            <div>
-              <Text size="s">Total de itens</Text>
-              <Text size="m">R$ 29,70</Text>
-            </div>
-            <div>
-              <Text size="s">Entrega</Text>
-              <Text size="m">R$ 29,70</Text>
-            </div>
-            <div>
-              <Text size="l" className="bold">
-                Total
-              </Text>
-              <Text size="l" className="bold">
-                R$ 29,70
-              </Text>
-            </div>
-            <SubmitButton>CONFIRMAR PEDIDO</SubmitButton>
-          </footer>
-        </div>
-      </aside>
+      <Cart />
     </CheckoutContainer>
   )
 }

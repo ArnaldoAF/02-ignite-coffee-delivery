@@ -4,15 +4,7 @@ import { defaultTheme } from '../../styles/themes/default'
 import { Text } from '../../styles/Typhography/Text'
 import { Title } from '../../styles/Typhography/Title'
 import { NumberInput } from '../NumberInput'
-import { CoffeeTypes } from '../../data/data'
-
-interface CoffeeInterface {
-  name: string
-  description: string
-  price: number
-  photo: string
-  tags: CoffeeTypes[]
-}
+import { CoffeeInterface } from '../../@types/CoffeeTypes'
 
 interface CoffeeCardProps {
   coffee: CoffeeInterface
