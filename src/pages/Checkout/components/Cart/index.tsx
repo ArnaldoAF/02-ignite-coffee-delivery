@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import { CoffeeListData } from '../../../../data/data'
 import { Text } from '../../../../styles/Typhography/Text'
 import { Title } from '../../../../styles/Typhography/Title'
@@ -34,7 +35,9 @@ export function Cart() {
               R$ 29,70
             </Text>
           </div>
-          <SubmitButton>CONFIRMAR PEDIDO</SubmitButton>
+          <NavLink to="/success" title="success">
+            <SubmitButton>CONFIRMAR PEDIDO</SubmitButton>
+          </NavLink>
         </footer>
       </div>
     </CartContainer>
