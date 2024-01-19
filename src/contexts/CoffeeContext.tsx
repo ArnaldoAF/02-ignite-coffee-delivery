@@ -67,7 +67,7 @@ export function CoffeeContextProvider({
       (coffeeCart) => coffeeCart.coffee.id === coffee.id,
     )
 
-    if (findCoffeeOnCart > 0) {
+    if (findCoffeeOnCart > -1) {
       dispatch(deleteCoffeeAction(coffee))
     }
   }

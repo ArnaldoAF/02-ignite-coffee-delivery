@@ -1,5 +1,4 @@
 import { CartCoffeeCardContainer, RemoveButton } from './styles'
-import { Title } from '../../../../styles/Typhography/Title'
 import { Text } from '../../../../styles/Typhography/Text'
 import { NumberInput } from '../../../../components/NumberInput'
 import { CoffeeInterface } from '../../../../@types/CoffeeTypes'
@@ -15,21 +14,23 @@ interface CartCoffeeCardProps {
 
 export function CartCoffeeCard(props: CartCoffeeCardProps) {
   const { coffee, qtd } = props
-  const { name, description, price, photo, tags } = coffee
-  const { setCoffeeQtdToCart } = useContext(CoffeeContext)
+  const { name, price, photo } = coffee
+  const { setCoffeeQtdToCart, deleteCoffeeFromCart } = useContext(CoffeeContext)
 
   const [localQtd, setLocalQtd] = useState(qtd)
 
-  const formattedPrice = price
-    .toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    })
-    .substring(3)
+  const formattedPrice = (price * qtd).toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  })
 
   function handleQtdChange(newValue: number) {
     setLocalQtd(newValue)
     setCoffeeQtdToCart(coffee, newValue)
+  }
+
+  function deleteCoffee() {
+    deleteCoffeeFromCart(coffee)
   }
 
   return (
@@ -40,7 +41,7 @@ export function CartCoffeeCard(props: CartCoffeeCardProps) {
           <Text size="m">{name}</Text>
           <div>
             <NumberInput onChange={handleQtdChange} value={localQtd} />
-            <RemoveButton>
+            <RemoveButton onClick={deleteCoffee}>
               <Trash size={16} color={defaultTheme.purple} />
               REMOVER
             </RemoveButton>
@@ -49,7 +50,7 @@ export function CartCoffeeCard(props: CartCoffeeCardProps) {
       </main>
       <aside>
         <Text size="m" className="bold">
-          R$ {formattedPrice}
+          {formattedPrice}
         </Text>
       </aside>
     </CartCoffeeCardContainer>

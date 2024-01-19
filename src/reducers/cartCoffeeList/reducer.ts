@@ -37,7 +37,7 @@ export function coffeeReducer(state: CartCoffeeElement[], action: any) {
     case ActionTypes.DELETE_COFFEE: {
       const currentCoffeeIndex = state.findIndex(
         (coffeCartElement) =>
-          coffeCartElement.coffee.id === action.payload.cartCoffee.coffee.id,
+          coffeCartElement.coffee.id === action.payload.coffee.id,
       )
 
       if (currentCoffeeIndex < 0) return state
@@ -45,8 +45,7 @@ export function coffeeReducer(state: CartCoffeeElement[], action: any) {
       return produce(state, (draft) => {
         draft.splice(
           draft.findIndex(
-            (cartCoffee) =>
-              cartCoffee.coffee.id === action.payload.cartCoffee.coffee.id,
+            (cartCoffee) => cartCoffee.coffee.id === action.payload.coffee.id,
           ),
           1,
         )
