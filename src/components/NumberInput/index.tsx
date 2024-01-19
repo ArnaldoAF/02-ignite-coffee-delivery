@@ -3,21 +3,26 @@ import { NumberInputContainer } from './styles'
 import { Plus, Minus } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
 
-export function NumberInput() {
-  const [numberValue, setNumberValue] = useState(0)
+interface NumberInputProps {
+  value: number
+  onChange: (newValue: number) => void
+}
+
+export function NumberInput({ value, onChange }: NumberInputProps) {
   const [hoverPlus, setHoverPlus] = useState(false)
   const [hoverMinus, setHoverMinus] = useState(false)
+
   function stepDown() {
-    setNumberValue(numberValue - 1)
+    onChange(value - 1)
   }
   function stepUp() {
-    setNumberValue(numberValue + 1)
+    onChange(value + 1)
   }
   return (
     <NumberInputContainer>
       <button
         onClick={stepDown}
-        disabled={numberValue === 0}
+        disabled={value === 0}
         onMouseEnter={() => setHoverMinus(true)}
         onMouseLeave={() => setHoverMinus(false)}
       >
@@ -26,7 +31,7 @@ export function NumberInput() {
           color={hoverMinus ? defaultTheme['purple-dark'] : defaultTheme.purple}
         />
       </button>
-      <input type="number" name="" id="" value={numberValue} disabled />
+      <input type="number" name="" id="" value={value} disabled />
       <button
         onClick={stepUp}
         className="plus"

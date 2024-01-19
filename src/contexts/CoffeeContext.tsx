@@ -36,7 +36,11 @@ export function CoffeeContextProvider({
       (coffeeCart) => coffeeCart.coffee.id === coffee.id,
     )
 
-    if (findCoffeeOnCart > 0) {
+    console.log('addCoffeeToCart')
+    console.log(findCoffeeOnCart)
+    console.log(coffee.id)
+
+    if (findCoffeeOnCart > -1) {
       dispatch(addCoffeeQtdAction(coffeeObject))
     } else {
       dispatch(addNewCoffeeAction(coffeeObject))
