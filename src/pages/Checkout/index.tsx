@@ -1,4 +1,4 @@
-import { CheckoutContainer, BaseInput, PaymentOptionButton } from './styles'
+import { CheckoutContainer, PaymentOptionButton } from './styles'
 import { Title } from '../../styles/Typhography/Title'
 import { Text } from '../../styles/Typhography/Text'
 import {
@@ -11,6 +11,7 @@ import {
 import { defaultTheme } from '../../styles/themes/default'
 import { useState } from 'react'
 import { Cart } from './components/Cart'
+import { AddressForm } from './components/AddressForm'
 
 // React.ForwardRefExoticComponent<IconProps & React.RefAttributes<SVGSVGElement>>
 
@@ -39,6 +40,7 @@ export function Checkout() {
   function changeCurretentPaymentMethod(payment: string) {
     setCurrentPaymentMethod(payment)
   }
+
   return (
     <CheckoutContainer>
       <main>
@@ -55,15 +57,7 @@ export function Checkout() {
               </div>
             </header>
 
-            <div>
-              <BaseInput className="w-40" placeholder="CEP" />
-              <BaseInput className="w-100" placeholder="Rua" />
-              <BaseInput className="w-40" placeholder="Número" />
-              <BaseInput className="w-60" placeholder="Complemento" />
-              <BaseInput className="w-40" placeholder="Bairro" />
-              <BaseInput className="w-40" placeholder="Cidade" />
-              <BaseInput className="w-20" placeholder="UF" />
-            </div>
+            <AddressForm />
           </section>
           <section>
             <header>
