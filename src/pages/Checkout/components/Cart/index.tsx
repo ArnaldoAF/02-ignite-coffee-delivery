@@ -1,23 +1,24 @@
 import { NavLink } from 'react-router-dom'
-import { CoffeeListData } from '../../../../data/data'
 import { Text } from '../../../../styles/Typhography/Text'
 import { Title } from '../../../../styles/Typhography/Title'
 import { CartCoffeeCard } from '../CartCoffeeCard'
 import { CartContainer, SubmitButton } from './styles'
+import { useContext } from 'react'
+import { CoffeeContext } from '../../../../contexts/CoffeeContext'
 
 export function Cart() {
+  const { cartCoffeeList } = useContext(CoffeeContext)
+
   return (
     <CartContainer>
       <Title size="xs">Cafés selecionados</Title>
       <div>
-        <CartCoffeeCard coffee={CoffeeListData[0]} />
-        <hr />
-
-        <CartCoffeeCard coffee={CoffeeListData[1]} />
-        <hr />
-
-        <CartCoffeeCard coffee={CoffeeListData[2]} />
-        <hr />
+        {cartCoffeeList.map((cartCoffee, index) => (
+          <div key={index}>
+            <CartCoffeeCard coffee={cartCoffee.coffee} qtd={cartCoffee.qtd} />
+            <hr />
+          </div>
+        ))}
         <footer>
           <div>
             <Text size="s">Total de itens</Text>
