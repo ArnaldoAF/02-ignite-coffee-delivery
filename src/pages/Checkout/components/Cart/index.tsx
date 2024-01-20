@@ -6,7 +6,11 @@ import { CartContainer, SubmitButton } from './styles'
 import { useContext } from 'react'
 import { CoffeeContext } from '../../../../contexts/CoffeeContext'
 
-export function Cart() {
+interface CartProps {
+  isValid: boolean
+}
+
+export function Cart({ isValid }: CartProps) {
   const { cartCoffeeList } = useContext(CoffeeContext)
 
   const entrega = 3.5
@@ -58,9 +62,12 @@ export function Cart() {
               {finalTotal}
             </Text>
           </div>
-          <NavLink to="/success" title="success">
-            <SubmitButton>CONFIRMAR PEDIDO</SubmitButton>
-          </NavLink>
+          <SubmitButton
+            type="submit"
+            disabled={isValid || cartCoffeeList.length === 0}
+          >
+            CONFIRMAR PEDIDO
+          </SubmitButton>
         </footer>
       </div>
     </CartContainer>

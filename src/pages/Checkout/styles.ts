@@ -3,33 +3,39 @@ import styled from 'styled-components'
 export const CheckoutContainer = styled.div`
   margin-top: 2.5rem;
 
-  display: flex;
-  gap: 2rem;
+  form {
+    display: flex;
+    gap: 2rem;
+    > main {
+      width: 60%;
 
-  margin-bottom: 5rem;
+      article {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 1rem;
 
-  > main {
-    width: 60%;
+        section {
+          padding: 2.5rem;
+          background: ${(props) => props.theme['base-card']};
+          border-radius: 6px;
 
-    article {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin-top: 1rem;
+          header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+          }
 
-      section {
-        padding: 2.5rem;
-        background: ${(props) => props.theme['base-card']};
-        border-radius: 6px;
-
-        header {
-          display: flex;
-          gap: 0.5rem;
-          margin-bottom: 2rem;
+          > div {
+            display: flex;
+            gap: 1rem;
+          }
         }
       }
     }
   }
+
+  margin-bottom: 5rem;
 `
 
 export const PaymentOptionButton = styled.div`
