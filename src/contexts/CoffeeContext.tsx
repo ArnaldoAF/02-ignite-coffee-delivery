@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useReducer } from 'react'
+import { ReactNode, createContext, useReducer, useState } from 'react'
 import { CartCoffeeElement, CoffeeInterface } from '../@types/CoffeeTypes'
 import { coffeeReducer } from '../reducers/cartCoffeeList/reducer'
 import {
@@ -6,13 +6,27 @@ import {
   addNewCoffeeAction,
   setCoffeeQtdAction,
   deleteCoffeeAction,
+  cleanCoffeeCartAction,
 } from '../reducers/cartCoffeeList/actions'
 
+interface checkoutObjectType {
+  bairro: string
+  cep?: number
+  cidade: string
+  complemento?: string
+  numero: number
+  rua: string
+  uf: string
+  pagamento: string | undefined
+}
 interface CoffeeContextType {
   cartCoffeeList: CartCoffeeElement[]
+  checkoutObject: checkoutObjectType | undefined
   addCoffeeToCart: (coffee: CoffeeInterface, qtd: number) => void
   setCoffeeQtdToCart: (coffee: CoffeeInterface, qtd: number) => void
   deleteCoffeeFromCart: (coffee: CoffeeInterface) => void
+  clearCoffeeCart: () => void
+  setCheckoutObjectValue: (object: checkoutObjectType) => void
 }
 
 export const CoffeeContext = createContext({} as CoffeeContextType)
@@ -25,6 +39,7 @@ export function CoffeeContextProvider({
   children,
 }: CoffeeContextProviderProps) {
   const [cartCoffeeList, dispatch] = useReducer(coffeeReducer, [])
+  const [checkoutObject, setCheckoutObject] = useState<checkoutObjectType>()
 
   function addCoffeeToCart(coffee: CoffeeInterface, qtd: number) {
     const coffeeObject = {
@@ -72,6 +87,14 @@ export function CoffeeContextProvider({
     }
   }
 
+  function clearCoffeeCart() {
+    dispatch(cleanCoffeeCartAction())
+  }
+
+  function setCheckoutObjectValue(object: checkoutObjectType) {
+    setCheckoutObject(object)
+  }
+
   return (
     <CoffeeContext.Provider
       value={{
@@ -79,6 +102,9 @@ export function CoffeeContextProvider({
         addCoffeeToCart,
         setCoffeeQtdToCart,
         deleteCoffeeFromCart,
+        clearCoffeeCart,
+        checkoutObject,
+        setCheckoutObjectValue,
       }}
     >
       {children}

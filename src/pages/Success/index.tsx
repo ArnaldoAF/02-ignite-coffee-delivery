@@ -5,8 +5,18 @@ import Success from '../../assets/Success.png'
 import { IconWIthText } from '../../components/IconWIthText'
 import { MapPin, Timer, CurrencyDollar } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
+import { useContext, useEffect } from 'react'
+import { CoffeeContext } from '../../contexts/CoffeeContext'
+import { useNavigate } from 'react-router-dom'
 
 export function SuccessPage() {
+  const { checkoutObject } = useContext(CoffeeContext)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (checkoutObject === undefined || !checkoutObject) navigate('/')
+  }, [checkoutObject, navigate])
+
   return (
     <SuccessPageContainer>
       <div>
@@ -19,21 +29,21 @@ export function SuccessPage() {
 
         <section>
           <IconWIthText
-            text1="Entrega em Rua João Daniel Martinellu, 102"
-            text2="Farrapos - Porto Alegre"
+            text1={`Entrega em Rua ${checkoutObject?.rua}, ${checkoutObject?.numero} - ${checkoutObject?.complemento}`}
+            text2={`${checkoutObject?.bairro} - ${checkoutObject?.cidade}, ${checkoutObject?.uf}`}
             Icon={MapPin}
             iconColor={defaultTheme.purple}
           />
           <IconWIthText
             text1="Previsão de entrega"
-            text2="20 min - 20 min"
+            text2="20 min - 30 min"
             text2IsBold
             Icon={Timer}
             iconColor={defaultTheme.yellow}
           />
           <IconWIthText
             text1="Pagamento na entrega"
-            text2="Cartão de Crédito"
+            text2={checkoutObject?.pagamento}
             text2IsBold
             Icon={CurrencyDollar}
             iconColor={defaultTheme['yellow-dark']}

@@ -9,13 +9,15 @@ import {
   Money,
 } from 'phosphor-react'
 import { defaultTheme } from '../../styles/themes/default'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 
 import { Cart } from './components/Cart'
 import { AddressForm } from './components/AddressForm'
+import { useNavigate } from 'react-router-dom'
+import { CoffeeContext } from '../../contexts/CoffeeContext'
 
 // React.ForwardRefExoticComponent<IconProps & React.RefAttributes<SVGSVGElement>>
 
@@ -33,6 +35,9 @@ type AddressFormData = zod.infer<typeof addressFormValidationSchema>
 
 export function Checkout() {
   const [currentPaymentMethod, setCurrentPaymentMethod] = useState('credito')
+  const navigate = useNavigate()
+  const { clearCoffeeCart, setCheckoutObjectValue } = useContext(CoffeeContext)
+
   const PaymentOptions = [
     {
       text: 'CARTÃO DE CRÉDITO',
@@ -68,15 +73,25 @@ export function Checkout() {
     },
   })
 
-  const { handleSubmit, watch, reset, formState } = addressFormObject
+  const { handleSubmit, reset, formState } = addressFormObject
 
   function handleCheckout(data: AddressFormData) {
     console.log('handleCheckout')
     console.log(formState)
+    clearCoffeeCart()
+    const checkoutObjectNew = {
+      ...data,
+      pagamento: PaymentOptions.find(
+        (payment) => payment.value === currentPaymentMethod,
+      )?.text,
+    }
+
+    setCheckoutObjectValue(checkoutObjectNew)
 
     console.log(data)
+    reset()
+    navigate('/success')
     // createNewCycle(data)
-    // reset()
   }
 
   return (
@@ -84,8 +99,6 @@ export function Checkout() {
       <form action="" onSubmit={handleSubmit(handleCheckout)}>
         <main>
           <Title size="xs">Complete seu pedido</Title>
-          {formState.isSubmitting} -{Object.keys(formState.errors)}
-          {formState.isValid}
           <article>
             <section>
               <header>

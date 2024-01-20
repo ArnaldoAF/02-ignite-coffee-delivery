@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom'
 import { Text } from '../../../../styles/Typhography/Text'
 import { Title } from '../../../../styles/Typhography/Title'
 import { CartCoffeeCard } from '../CartCoffeeCard'
