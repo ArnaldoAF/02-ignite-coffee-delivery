@@ -57,4 +57,9 @@ export const SubmitButton = styled.button`
   justify-content: center;
 
   cursor: pointer;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
 `
